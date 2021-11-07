@@ -59,11 +59,11 @@ export default {
       const key = e.key
       const direction = this.keys[key]
       this.move(direction)
-      console.log(this.keys);
-      console.log(this.keys[key]);
     });
     const canvas = document.getElementById('game')
     const game = canvas.getContext('2d')
+    game.fillStyle = "red"
+    game.font = "15px Arial"
 
     const bg = this.$refs["bg"]
     const hoody = this.$refs["hoody"]
@@ -73,6 +73,8 @@ export default {
       game.clearRect(0, 0, canvas.width, canvas.height)
       game.drawImage(bg, 0, 0, canvas.width, canvas.height)
       game.drawImage(hoody, this.position.x, this.position.y, 33, 33)
+      let coords = "x: "+data.x+" y: "+data.y
+      game.fillText(coords, 10, 18)
     })
   },
   methods: {
